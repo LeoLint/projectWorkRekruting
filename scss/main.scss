@@ -1,11 +1,5 @@
 $mainColor: #098cffc7;
 
-body {
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
 
 * {
     padding: 0px 0px 0px 0px;
@@ -30,10 +24,19 @@ body {
     }
 }
 
+body {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0 0 0;
     @include br(lg){
             width: 900px;
             padding: 0 15px;
@@ -69,20 +72,34 @@ body {
     border-bottom: 2px rgba(0, 0, 0, 0.596) solid;
     padding-top: 20px;
     padding-bottom: 20px;
+    @include br(xs) {
+        width: 480px;
+      }
+      @include br(sm) {
+        width: 768px;
+        }
     &_logo {
         font-size: 22px;
         padding-top: 10px;
         padding-bottom: 10px;
         border-top: 2px $mainColor solid;
         border-bottom: 2px $mainColor solid;
+        @include br(sm) {
+            font-size: 32px;
+            }
     }
     &_nav {
         display: flex;
         justify-content: space-between;
         width: 30%;
-        @include br(md){
-                display: none;
+        @include br(sm){
+            display: flex;
+            flex-direction: column;
         }
+        @include br(md){
+        display: flex;
+        flex-direction: column;
+    }
         &-link {
             font-size: 19px;
             font-weight: 100;
@@ -93,6 +110,12 @@ body {
             border-top: 2px transparent solid;
             border-bottom: 2px transparent solid;
             transition: 0.3s ease;
+            @include br(sm){
+                font-size: 30px;
+            }
+            @include br(xs){
+                font-size: 30px;
+            }
             &:hover {
                 color: black;
                 border-top: 2px $mainColor solid;
@@ -128,6 +151,12 @@ body {
     height: 1000px;
     background: url(/img/main_bg.jpg) no-repeat;
     background-color: $mainColor;
+        @include br(xs) {
+        width: 480px;
+        }
+        @include br(sm) {
+        width: 768px;
+        }
     &_title {
         font-size: 62px;
         text-align: center;
@@ -205,6 +234,12 @@ body {
     padding-top: 120px;
     background: url(/img/bg-vacansies.jpg) no-repeat;
     background-size: cover;
+        @include br(xs) {
+        width: 480px;
+        }
+        @include br(sm) {
+        width: 768px;
+        }
     &_wrapper {
         max-width: 1800px;
         margin: 0 auto;
@@ -218,28 +253,19 @@ body {
         text-transform: uppercase;
     }
     .slider {
-        width: 100%;
         display: flex;
         justify-content: space-between;
         padding-top: 60px;
+        overflow: hidden;
     @include br(md){
-            width: 800px;
-            padding: 0 15px;
-            box-sizing: border-box;
-            margin: 0 auto;
+            display: none;
         }
     @include br(sm){
-            width: 768px;
-            padding: 0 15px;
-            box-sizing: border-box;
-            margin: 0 auto;
+            display: none;
         }
     @include br(xs){
-            width: 480px;
-            padding: 0 0px;
-            box-sizing: border-box;
-            margin: 0 auto;
-        }
+            display: none;
+        } 
         &_item {
             display: block;
             background-color: white;
@@ -280,10 +306,78 @@ body {
             }
         }
     }
-   
+   .mobile_vacansies {
+       display: none;
+        &_item {
+            width: 390px;
+            display: block;
+            background-color: white;
+            margin: 25px 25px 25px 25px;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 15px;
+            border: 2px transparent solid;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            transition: 0.3s ease;
+                    @include br(sm) {
+                    .mobile_vacansies-title {
+                        font-size: 50px;
+                    }
+                    .mobile_vacansies-subtitle {
+                        font-size: 35px;
+                    }
+                    .mobile_vacansies-description {
+                        font-size: 20px;
+                    }
+                }
+            &-title {
+                font-size: 30px;
+                text-transform: uppercase;
+            }
+            &-subtitle {
+                font-size: 22px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            &-description {
+                font-size: 19px;
+            }
+            img {
+                padding-top: 10px;
+                padding-bottom: 20px;
+                display: block;
+                margin: 0 auto;
+                height: 120px;
+                width: 240px;
+            }
+            &:hover {
+                border: 2px $mainColor solid;
+                transform: scale(1.055);
+                transition: 0.3s ease;
+            }
+        }
+        @include br(md) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @include br(sm) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @include br(xs) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+   }
 }
-
-
 
 .map {
 
@@ -295,6 +389,12 @@ body {
     width: 100%;
     padding-top: 60px;
     padding-bottom: 60px;
+    @include br(xs) {
+        width: 480px;
+        }
+        @include br(sm) {
+        width: 768px;
+        }
     &_wrapper {
         width: 100%;
         display: flex;
@@ -308,16 +408,25 @@ body {
             display: flex;
             flex-direction: column;
             width: 50%;
+            @include br(sm) {
+                align-items: center;
+                }
             &--title {
                 color: black;
                 -webkit-text-stroke: 2px rgba(0,0,0,0.5);
                 font-size: 42px;
                 padding-bottom: 20px;
+                @include br(sm) {
+                    font-size: 70px;
+                    }
             }
             &--subtitle {
                 font-size: 20px;
                 color: black;
                 -webkit-text-stroke: 1px rgb(0, 0, 0);
+                @include br(sm) {
+                    display: none;
+                    }
             }
         }
         &-right {
@@ -361,13 +470,18 @@ body {
 }
 
 .cooperation {
-    width: 100%;
     background-color: $mainColor;
     background-size: 50%;
     padding-bottom: 50px;
     position: relative;
     text-align: center;
     text-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+    @include br(xs) {
+        width: 480px;
+        }
+        @include br(sm) {
+        width: 768px;
+        }
     &_title {
         text-align: center;
         font-size: 42px;
@@ -381,10 +495,10 @@ body {
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        flex-direction: row;
+        flex-direction: row;   
         img {
             display: block;
-            width: 400px;
+            width: 350px;
         }
     }
     
@@ -392,7 +506,12 @@ body {
 }
 
 .googleMaps {
-
+    @include br(xs) {
+        width: 480px;
+        }
+        @include br(sm) {
+        width: 768px;
+        }
     #map {
         height: 400px;
       }
@@ -403,6 +522,12 @@ body {
     background-color: gray;
     padding-top: 20px;
     padding-bottom: 20px;
+    @include br(xs) {
+        width: 480px;
+        }
+        @include br(sm) {
+        width: 768px;
+        }
     &_wrapper {
         display: flex;
         justify-content: space-evenly;
